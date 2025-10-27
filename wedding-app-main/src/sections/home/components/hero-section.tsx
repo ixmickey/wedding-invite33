@@ -20,8 +20,7 @@ export const HeroSection = ({
   const { t } = useTranslation('home');
 
   return (
-    // Note: If you applied the pt-24 fix in the previous step, keep it. 
-    // This example uses the original pt-10 to focus on the inner content.
+    // Further reduced vertical padding/height on mobile, rely on inner padding
     <div className="h-screen bg-gradient-to-br from-rose-100 via-pink-50 to-purple-100 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0">
@@ -31,28 +30,26 @@ export const HeroSection = ({
       </div>
 
       {/* Content */}
-      {/* NOTE: You may need to update pt-10 here to pt-24 or more if the navigation bar is overlapping */}
-      <div className="relative z-10 flex flex-col h-full px-6 pt-10 sm:pt-18 md:pt-20"> 
+      <div className="relative z-10 flex flex-col h-full px-4 pt-16 sm:pt-18 md:pt-20"> {/* Reduced horizontal px to px-4, adjusted pt-16 up from pt-10 to account for nav overlap */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-lg mx-auto text-center"> {/* Slightly tighter max-width */}
             {/* Main Heading */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
               transition={{ duration: 1, delay: 0.2 }}
-              // REDUCED MARGIN BELOW TITLE
-              className="mb-4 sm:mb-6"
+              className="mb-3 sm:mb-6" // Reduced margin
             >
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-4 font-medium">
+              <div className="text-xs sm:text-base md:text-lg lg:text-xl text-gray-600 mb-3 font-medium"> {/* Reduced base font to text-xs */}
                 {t('hero.welcome')}
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-gray-800 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif text-gray-800 mb-4 leading-tight"> {/* Reduced base font to text-4xl */}
                 Our
                 <span className="block bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">
                   Wedding
                 </span>
               </h1>
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
+              <div className="w-24 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div> {/* Reduced width */}
             </motion.div>
 
             {/* Couple Photos (Groom Left, Bride Right - CORRECTED) */}
@@ -60,24 +57,23 @@ export const HeroSection = ({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.8 }}
               transition={{ duration: 1, delay: 0.6 }}
-              // REDUCED MARGIN BELOW NAMES SECTION
-              className="mb-3 sm:mb-4"
+              className="mb-2 sm:mb-4" // Reduced margin
             >
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-4 sm:mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-3 sm:mb-6"> {/* Reduced gap and margin */}
                 
                 {/* 1. GROOM (Now on Left) */}
                 <div className="text-center flex-shrink-0 justify-items-center">
                   <div 
-                    // REDUCED CIRCLE SIZE
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center 
-                               // REDUCED EMOJI SIZE
-                               text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg"
+                    // Aggressively reduced circle size on mobile (base classes)
+                    className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center 
+                               // Aggressively reduced emoji size on mobile (base classes)
+                               text-xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 sm:mb-4 shadow-lg" 
                   >
                     🤵🏻
                   </div>
-                  <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
+                  <div className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-1"> {/* Reduced base width */}
                     <h3
-                      // REDUCED FONT SIZE
+                      // Reduced base font size 
                       className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
                       title={couple.groom.fullName}
                     >
@@ -92,23 +88,23 @@ export const HeroSection = ({
                 </div>
 
                 {/* Heart for mobile - shown between couple on mobile */}
-                <div className="sm:hidden text-xl text-rose-500 animate-pulse my-2">
+                <div className="sm:hidden text-lg text-rose-500 animate-pulse my-1"> {/* Reduced emoji size and margin */}
                   💕
                 </div>
 
                 {/* 2. BRIDE (Now on Right) */}
                 <div className="text-center flex-shrink-0 justify-items-center">
                   <div 
-                    // REDUCED CIRCLE SIZE
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center 
-                               // REDUCED EMOJI SIZE
-                               text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg"
+                    // Aggressively reduced circle size on mobile (base classes)
+                    className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center 
+                               // Aggressively reduced emoji size on mobile (base classes)
+                               text-xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 sm:mb-4 shadow-lg" 
                   >
                     👰🏻
                   </div>
-                  <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
+                  <div className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-1"> {/* Reduced base width */}
                     <h3
-                      // REDUCED FONT SIZE
+                      // Reduced base font size
                       className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
                       title={couple.bride.fullName}
                     >
@@ -130,7 +126,7 @@ export const HeroSection = ({
                 onClick={() => onScrollToSection('rsvp')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer" // Reduced horizontal padding and base font size
               >
                 {t('navigation.rsvp')}
               </motion.button>
@@ -138,7 +134,7 @@ export const HeroSection = ({
                 onClick={() => onScrollToSection('details')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/80 backdrop-blur-sm text-gray-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer"
+                className="bg-white/80 backdrop-blur-sm text-gray-800 px-5 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer" // Reduced horizontal padding and base font size
               >
                 {t('hero.view-details')}
               </motion.button>
@@ -147,7 +143,7 @@ export const HeroSection = ({
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex justify-center pb-6 sm:pb-8">
+        <div className="flex justify-center pb-4 sm:pb-8"> {/* Reduced bottom padding */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isLoaded ? 1 : 0 }}
@@ -160,10 +156,10 @@ export const HeroSection = ({
               className="text-gray-600 text-center cursor-pointer"
               onClick={() => onScrollToSection('couple')}
             >
-              <div className="text-xs mb-1 sm:mb-2">
+              <div className="text-xs mb-0 sm:mb-2"> {/* Reduced bottom margin */}
                 {t('hero.scroll-down')}
               </div>
-              <div className="text-lg sm:text-xl">⬇️</div>
+              <div className="text-md sm:text-xl">⬇️</div> {/* Reduced emoji size */}
             </motion.div>
           </motion.div>
         </div>
