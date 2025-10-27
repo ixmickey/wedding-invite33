@@ -1,3 +1,5 @@
+// src/sections/home/components/countdown-timer.tsx
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -76,13 +78,13 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       ref={ref}
       className="py-12 px-4 bg-gradient-to-br from-gray-50 to-rose-50/30" // Reduced vertical padding
     >
-      <div className="max-w-xl mx-auto text-center"> {/* Reduced max-width */}
+      <div className="max-w-md mx-auto text-center"> {/* Reduced max-width (from max-w-xl) */}
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
           transition={{ duration: 0.8 }}
-          className="mb-8" // Reduced margin
+          className="mb-8" // Reduced margin (from mb-12)
         >
           <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-3"> // Reduced base font size
             {t('details.countdown-title')}
@@ -94,7 +96,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
         </motion.div>
 
         {/* Countdown Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"> // Reduced gap
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"> {/* Reduced gap (from gap-4/6) */}
           {timeUnits.map((unit, index) => (
             <motion.div
               key={unit.label}
@@ -112,7 +114,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
               }}
               className="relative group"
             >
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1"> // Reduced padding and border-radius
+              <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1"> {/* Reduced padding and border-radius, reduced hover offset */}
                 {/* Background Gradient */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`} // Reduced border-radius
@@ -144,9 +146,9 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-8" // Reduced margin
+          className="mt-8" // Reduced margin (from mt-12)
         >
-          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-md border border-white/40"> // Reduced padding
+          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-md border border-white/40"> {/* Reduced padding (from px-6 py-3) */}
             <p className="text-xs sm:text-sm md:text-base text-gray-700 font-medium"> // Reduced base font size
               {timeLeft.days > 0
                 ? `${timeLeft.days} ${t('details.days-until')}`
