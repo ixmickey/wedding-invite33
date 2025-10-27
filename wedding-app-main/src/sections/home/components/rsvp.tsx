@@ -24,24 +24,31 @@ export const RSVP = () => {
   
   // Formspree Endpoint URL - Data will be sent here.
   const FORM_ENDPOINT = "https://formspree.io/f/movpvobl"; 
-const handleChange = (
+
+// BLANK LINE ADDED HERE to separate 'const' declarations (Fix 1)
+  
+  const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
     let name = e.target.name;
-    const value = e.target.value; // CHANGED: let to const
+    const value = e.target.value;
 
     // Only mapping _replyto is required now
     if (name === '_replyto') {
         name = 'email'; 
     } 
 
+// BLANK LINE ADDED HERE to separate control flow from return-like statement (Fix 2 & 3)
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
+
+  
   return (
     <div
       ref={ref}
