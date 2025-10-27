@@ -133,9 +133,9 @@ export default function NavigationFAB({
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           whileHover={{ opacity: 1, x: 0 }}
-          className="absolute right-full top-1/2 -translate-y-1/2 mr-4 bg-gray-800/90 text-white text-xs px-3 py-2 rounded-lg shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none"
+          className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-gray-800/90 text-white text-xs px-2 py-1 rounded-md shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none" //
         >
-          <div className="font-medium capitalize">
+          <div className="font-medium capitalize text-xs"> //
             {activeSection === 'hero' ? 'Home' : activeSection}
           </div>
           <div className="text-gray-300 text-xs">
