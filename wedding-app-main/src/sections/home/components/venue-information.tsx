@@ -112,10 +112,11 @@ export const VenueInformation = ({ venue }: VenueInformationProps) => {
               {t('venue.shuttle-service')} 
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-gray-600">
-              <div className="bg-white/50 rounded-lg p-4">
+            <div className="bg-white/50 rounded-lg p-4">
                 <p className="font-medium">Directions:</p>
                 <p>Use any map application to find the venue easily.</p>
-                <p>Click "View on Map" above.</p>
+                {/* FIXED: Unescaped quotes */}
+                <p>Click &quot;View on Map&quot; above.</p> 
               </div>
               <div className="bg-white/50 rounded-lg p-4">
                 <p className="font-medium">{t('venue.alternative')}</p>
