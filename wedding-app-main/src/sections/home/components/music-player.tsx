@@ -117,13 +117,13 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3" //
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3" // Reduced padding
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-5 relative overflow-hidden" //
+            className="bg-white rounded-xl shadow-2xl max-w-sm w-full p-5 relative overflow-hidden" // Reduced size and padding
           >
             {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 opacity-50"></div>
@@ -131,29 +131,29 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
             {/* Content */}
             <div className="relative z-10">
               {/* Header */}
-              <div className="text-center mb-5"> //
+              <div className="text-center mb-5">
                 <motion.div
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-3xl mb-3" //
+                  className="text-3xl mb-3" // Reduced font size
                 >
                   🎵
                 </motion.div>
-                <h3 className="text-lg font-bold text-gray-800 mb-1"> //
+                <h3 className="text-lg font-bold text-gray-800 mb-1"> // Reduced font size
                   {t('music.enable-music')}
                 </h3>
-                <p className="text-gray-600 text-xs"> //
+                <p className="text-gray-600 text-xs"> // Reduced font size
                   {t('music.browser-blocked')}
                 </p>
               </div>
 
               {/* Browser Settings Guide */}
-              <div className="bg-blue-50 rounded-lg p-3 mb-5"> //
-                <h4 className="font-semibold text-blue-800 mb-2 flex items-center text-sm"> //
+              <div className="bg-blue-50 rounded-lg p-3 mb-5"> // Reduced padding
+                <h4 className="font-semibold text-blue-800 mb-2 flex items-center text-sm"> // Reduced font size
                   <span className="mr-2">⚙️</span>
                   {t('music.how-to-enable')}
                 </h4>
-                <div className="text-blue-700 text-xs space-y-1"> //
+                <div className="text-blue-700 text-xs space-y-1"> // Reduced font size
                   <p>
                     • <strong>Chrome/Edge:</strong> {t('music.chrome-edge')}
                   </p>
@@ -172,7 +172,7 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleAllowAutoplay}
-                  className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 text-sm" //
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 text-sm" // Reduced padding and font size
                 >
                   {t('music.play-music')}
                 </motion.button>
@@ -180,14 +180,14 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleDismissModal}
-                  className="px-4 py-2 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm" //
+                  className="px-4 py-2 bg-gray-100 text-gray-600 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm" // Reduced padding and font size
                 >
                   {t('music.later')}
                 </motion.button>
               </div>
 
               {/* Footer note */}
-              <p className="text-xs text-gray-500 text-center mt-3"> //
+              <p className="text-xs text-gray-500 text-center mt-3"> // Reduced font size
                 {t('music.auto-note')}
               </p>
             </div>
@@ -201,21 +201,21 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -20, scale: 0.9 }}
-          className="fixed bottom-24 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-2 rounded-md shadow-xl backdrop-blur-sm max-w-[180px]" //
+          className="fixed bottom-24 right-6 z-50 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-2 rounded-md shadow-xl backdrop-blur-sm max-w-[180px]" // Reduced size and padding
         >
           <div className="flex items-center space-x-2">
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-lg" //
+              className="text-lg" // Reduced font size
             >
               🎵
             </motion.div>
             <div>
-              <div className="font-medium text-xs"> //
+              <div className="font-medium text-xs"> // Reduced font size
                 {t('music.wedding-music')}
               </div>
-              <div className="text-[10px] opacity-90"> //
+              <div className="text-[10px] opacity-90"> // Reduced font size
                 {t('music.click-to-start')}
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
           type: 'spring',
           stiffness: 200,
         }}
-        className={`fixed bottom-20 right-6 z-50 ${className}`} //
+        className={`fixed bottom-20 right-4 z-50 ${className}`} // Changed bottom to 20 to clear the FAB on larger screens, right to 4
       >
         {/* Hidden audio element */}
         <audio
@@ -415,9 +415,9 @@ export default function MusicPlayer({ className = '' }: MusicPlayerProps) {
           <motion.div
             initial={{ opacity: 0, x: 10 }}
             whileHover={{ opacity: 1, x: 0 }}
-            className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-gray-800/90 text-white text-xs px-2 py-1 rounded-md shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none" //
+            className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-gray-800/90 text-white text-xs px-2 py-1 rounded-md shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none" // Compacted padding and reduced margin
           >
-            <div className="font-medium text-xs"> //
+            <div className="font-medium text-xs"> 
               {isPlaying
                 ? `🎵 ${t('music.playing')}`
                 : autoplayBlocked && !hasInteracted
