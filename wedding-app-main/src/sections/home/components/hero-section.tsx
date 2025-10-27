@@ -60,7 +60,8 @@ export const HeroSection = ({
                 
                 {/* 1. GROOM (Now on Left) */}
                 <div className="text-center flex-shrink-0 justify-items-center">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg">
+                  {/* Changed w-20 h-20 to w-16 h-16, and text-3xl to text-2xl */}
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg">
                     🤵🏻
                   </div>
                   <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
@@ -79,13 +80,15 @@ export const HeroSection = ({
                 </div>
 
                 {/* Heart for mobile - shown between couple on mobile */}
-                <div className="sm:hidden text-xl text-rose-500 animate-pulse my-2">
+                {/* Changed text-xl to text-lg, and my-2 to my-1 */}
+                <div className="sm:hidden text-lg text-rose-500 animate-pulse my-1">
                   💕
                 </div>
 
                 {/* 2. BRIDE (Now on Right) */}
                 <div className="text-center flex-shrink-0 justify-items-center">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg">
+                  {/* Changed w-20 h-20 to w-16 h-16, and text-3xl to text-2xl */}
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 shadow-lg">
                     👰🏻
                   </div>
                   <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
