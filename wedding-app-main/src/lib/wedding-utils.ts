@@ -50,5 +50,6 @@ const formatDateForGoogle = (date: Date): string => {
 };
 
 export const generateMapLink = (address: string): string => {
- return \https://www.google.com/search?q=https://www.google.com/maps/search/%3Fapi%3D1%26query%3D${encodeURIComponent(address)}`;`
+  // CORRECTED: Fixed malformed template literal and used functional maps URL
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 };
