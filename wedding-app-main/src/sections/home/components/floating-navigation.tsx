@@ -29,7 +29,7 @@ export default function FloatingNavigation({
     >
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="bg-white/90 backdrop-blur-xl rounded-xl sm:rounded-2xl px-1 sm:px-2 py-1 sm:py-2 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-300" //
+        className="bg-white/90 backdrop-blur-xl rounded-xl sm:rounded-2xl px-1 sm:px-2 py-1 sm:py-2 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-300" // Reduced base padding
       >
         <div className="flex items-center space-x-0.5 sm:space-x-1">
           {NAVIGATION_SECTIONS.map((section, index) => (
