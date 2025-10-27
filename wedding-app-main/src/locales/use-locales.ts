@@ -2,15 +2,16 @@
 
 'use client';
 
-import dayjs from 'dayjs';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { allLangs } from './all-langs';
 import type resources from '@/types/resources';
 // ----------------------------------------------------------------------
 
 export function useTranslate(ns?: typeof resources) {
-  // ... (t, i18n)
+  // @ts-expect-error - err
+  const { t, i18n } = useTranslation(ns);
 
   const currentLang = allLangs[0]; // Now permanently English
 
