@@ -44,7 +44,7 @@ export function NavigationButton({
             initial={NAVIGATION_ANIMATIONS.background.initial}
             animate={NAVIGATION_ANIMATIONS.background.animate}
             exit={NAVIGATION_ANIMATIONS.background.exit}
-            transition={NAVIGATION_ANIMATIONS.background.transition}
+            transition={{ ...NAVIGATION_ANIMATIONS.background.transition }}
             className={`absolute inset-0 bg-gradient-to-r ${section.gradient} rounded-lg sm:rounded-xl`}
           />
         )}
