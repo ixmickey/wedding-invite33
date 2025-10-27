@@ -24,14 +24,13 @@ export const RSVP = () => {
   
   // Formspree Endpoint URL - Data will be sent here.
   const FORM_ENDPOINT = "https://formspree.io/f/movpvobl"; 
-
-  const handleChange = (
+const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
     let name = e.target.name;
-    let value = e.target.value;
+    const value = e.target.value; // CHANGED: let to const
 
     // Only mapping _replyto is required now
     if (name === '_replyto') {
@@ -43,7 +42,6 @@ export const RSVP = () => {
       [name]: value,
     }));
   };
-
   return (
     <div
       ref={ref}
