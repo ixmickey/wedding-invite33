@@ -74,27 +74,27 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   return (
     <div
       ref={ref}
-      className="py-16 px-4 bg-gradient-to-br from-gray-50 to-rose-50/30"
+      className="py-12 px-4 bg-gradient-to-br from-gray-50 to-rose-50/30" //
     >
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-xl mx-auto text-center"> //
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-8" //
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-4">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-3"> //
             {t('details.countdown-title')}
           </h2>
-          <div className="w-24 h-px bg-rose-400 mx-auto mb-4"></div>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl">
+          <div className="w-20 h-px bg-rose-400 mx-auto mb-3"></div> //
+          <p className="text-sm sm:text-lg md:text-xl text-gray-600"> //
             {t('details.countdown-subtitle')}
           </p>
         </motion.div>
 
         {/* Countdown Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"> //
           {timeUnits.map((unit, index) => (
             <motion.div
               key={unit.label}
@@ -112,16 +112,16 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
               }}
               className="relative group"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2">
+              <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1"> //
                 {/* Background Gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`} //
                 ></div>
 
                 {/* Content */}
                 <div className="relative z-10">
                   <div
-                    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-br ${unit.color} bg-clip-text text-transparent mb-2`}
+                    className={`text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-br ${unit.color} bg-clip-text text-transparent mb-1`} //
                   >
                     {unit.value.toString().padStart(2, '0')}
                   </div>
@@ -132,7 +132,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
 
                 {/* Decorative Corner */}
                 <div
-                  className={`absolute top-0 right-0 w-8 h-8 bg-gradient-to-br ${unit.color} opacity-20 rounded-bl-full rounded-tr-2xl`}
+                  className={`absolute top-0 right-0 w-6 h-6 bg-gradient-to-br ${unit.color} opacity-20 rounded-bl-full rounded-tr-xl`} //
                 ></div>
               </div>
             </motion.div>
@@ -144,10 +144,10 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-12"
+          className="mt-8" //
         >
-          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-md border border-white/40">
-            <p className="text-gray-700 font-medium text-sm sm:text-base md:text-lg">
+          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-md border border-white/40"> //
+            <p className="text-xs sm:text-sm md:text-base text-gray-700 font-medium"> //
               {timeLeft.days > 0
                 ? `${timeLeft.days} ${t('details.days-until')}`
                 : timeLeft.hours > 0
