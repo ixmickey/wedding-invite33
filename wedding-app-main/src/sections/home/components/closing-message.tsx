@@ -22,34 +22,34 @@ export const ClosingMessage = ({ bride, groom }: ClosingMessageProps) => {
   return (
     <div
       ref={ref}
-      className="py-16 px-4 bg-gradient-to-br from-rose-100 to-pink-200" //
+      className="py-12 px-4 bg-gradient-to-br from-rose-100 to-pink-200" // Reduced vertical padding
     >
-      <div className="max-w-xl mx-auto text-center"> //
+      <div className="max-w-xl mx-auto text-center"> // Reduced max-width
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
           transition={{ duration: 0.8 }}
-          className="mb-10" //
+          className="mb-10" // Reduced margin
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-800 mb-4"> //
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-800 mb-3"> // Reduced base font size
             {t('closing-message.title')}
           </h2>
-          <div className="w-20 h-px bg-rose-500 mx-auto mb-6"></div> //
+          <div className="w-20 h-px bg-rose-500 mx-auto mb-6"></div> // Reduced width and margin
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl border border-white/40 mb-10" //
+          className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl border border-white/40 mb-10" // Reduced padding and border-radius
         >
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-4 font-light"> //
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-4 font-light"> // Reduced base font size
             &quot;{t('closing-message.quote')}&quot;
           </p>
-          <div className="text-sm sm:text-base text-gray-600"> //
+          <div className="text-sm sm:text-base text-gray-600"> // Reduced base font size
             {t('closing-message.with-love')}
           </div>
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-rose-600 mt-2"> //
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-rose-600 mt-2"> // Reduced base font size
             {groom} & {bride}
           </div>
         </motion.div>
@@ -58,9 +58,9 @@ export const ClosingMessage = ({ bride, groom }: ClosingMessageProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-5" //
+          className="space-y-5" // Reduced spacing
         >
-          <div className="flex justify-center space-x-3 text-xl sm:text-3xl md:text-4xl"> //
+          <div className="flex justify-center space-x-3 text-xl sm:text-3xl md:text-4xl"> // Reduced base font size
             <span className="animate-bounce">💕</span>
             <span className="animate-bounce" style={{ animationDelay: '0.1s' }}>
               💖
@@ -70,7 +70,7 @@ export const ClosingMessage = ({ bride, groom }: ClosingMessageProps) => {
             </span>
           </div>
 
-          <p className="text-xs sm:text-base text-gray-600"> //
+          <p className="text-xs sm:text-base text-gray-600"> // Reduced base font size
             {t('closing-message.hashtags')}
           </p>
         </motion.div>
@@ -80,7 +80,7 @@ export const ClosingMessage = ({ bride, groom }: ClosingMessageProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: inView ? 1 : 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 pt-6 border-t border-white/40" //
+          className="mt-12 pt-6 border-t border-white/40" // Reduced margin and padding
         >
           <p className="text-xs sm:text-sm text-gray-500">
             {t('closing-message.contact')}
