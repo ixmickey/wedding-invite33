@@ -74,27 +74,27 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   return (
     <div
       ref={ref}
-      className="py-12 px-4 bg-gradient-to-br from-gray-50 to-rose-50/30" //
+      className="py-12 px-4 bg-gradient-to-br from-gray-50 to-rose-50/30" // Reduced vertical padding
     >
-      <div className="max-w-xl mx-auto text-center"> //
+      <div className="max-w-xl mx-auto text-center"> {/* Reduced max-width */}
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
           transition={{ duration: 0.8 }}
-          className="mb-8" //
+          className="mb-8" // Reduced margin
         >
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-3"> //
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-3"> // Reduced base font size
             {t('details.countdown-title')}
           </h2>
-          <div className="w-20 h-px bg-rose-400 mx-auto mb-3"></div> //
-          <p className="text-sm sm:text-lg md:text-xl text-gray-600"> //
+          <div className="w-20 h-px bg-rose-400 mx-auto mb-3"></div> // Reduced width and margin
+          <p className="text-sm sm:text-lg md:text-xl text-gray-600"> // Reduced base font size
             {t('details.countdown-subtitle')}
           </p>
         </motion.div>
 
         {/* Countdown Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"> //
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5"> // Reduced gap
           {timeUnits.map((unit, index) => (
             <motion.div
               key={unit.label}
@@ -112,16 +112,16 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
               }}
               className="relative group"
             >
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1"> //
+              <div className="bg-white rounded-xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1"> // Reduced padding and border-radius
                 {/* Background Gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`} //
+                  className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl`} // Reduced border-radius
                 ></div>
 
                 {/* Content */}
                 <div className="relative z-10">
                   <div
-                    className={`text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-br ${unit.color} bg-clip-text text-transparent mb-1`} //
+                    className={`text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-br ${unit.color} bg-clip-text text-transparent mb-1`} // Reduced base font size and margin
                   >
                     {unit.value.toString().padStart(2, '0')}
                   </div>
@@ -132,7 +132,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
 
                 {/* Decorative Corner */}
                 <div
-                  className={`absolute top-0 right-0 w-6 h-6 bg-gradient-to-br ${unit.color} opacity-20 rounded-bl-full rounded-tr-xl`} //
+                  className={`absolute top-0 right-0 w-6 h-6 bg-gradient-to-br ${unit.color} opacity-20 rounded-bl-full rounded-tr-xl`} // Reduced size and border-radius
                 ></div>
               </div>
             </motion.div>
@@ -144,10 +144,10 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-8" //
+          className="mt-8" // Reduced margin
         >
-          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-md border border-white/40"> //
-            <p className="text-xs sm:text-sm md:text-base text-gray-700 font-medium"> //
+          <div className="inline-block bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-md border border-white/40"> // Reduced padding
+            <p className="text-xs sm:text-sm md:text-base text-gray-700 font-medium"> // Reduced base font size
               {timeLeft.days > 0
                 ? `${timeLeft.days} ${t('details.days-until')}`
                 : timeLeft.hours > 0
