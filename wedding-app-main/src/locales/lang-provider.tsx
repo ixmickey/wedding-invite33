@@ -10,7 +10,6 @@ export const LangProvider = async ({
 }) => {
   const lang = await detectLanguage();
 
-  
-
-  return <I18nProvider lang={lang}>{children}</I18nProvider>;
+  // FIX: Removed the 'lang={lang}' prop because it was removed from I18nProvider's definition.
+  return <I18nProvider>{children}</I18nProvider>;
 };
