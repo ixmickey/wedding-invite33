@@ -62,24 +62,24 @@ export const LetterAnimation = ({
               left: `${10 + i * 15}%`,
             }}
           >
-            💕
+            瀦
           </motion.div>
         ))}
       </div>
 
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4"> //
         <div className="text-center">
           {/* Greeting Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mb-8 sm:mb-12"
+            className="mb-6 sm:mb-10" //
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-4">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 mb-3"> //
               {t('hero.welcome')}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-md mx-auto">
+            <p className="text-sm sm:text-lg md:text-xl text-gray-600 max-w-sm mx-auto"> //
               {toName ? (
                 <>
                   {t('letter.dear')}{' '}
@@ -111,7 +111,7 @@ export const LetterAnimation = ({
             >
               {/* Envelope Back */}
               <motion.div
-                className="w-80 h-56 sm:w-96 sm:h-64 bg-gradient-to-br from-rose-200 to-pink-300 rounded-lg shadow-2xl relative mx-auto"
+                className="w-72 h-52 sm:w-80 sm:h-56 bg-gradient-to-br from-rose-200 to-pink-300 rounded-lg shadow-2xl relative mx-auto" //
                 animate={{
                   rotateY: isOpening ? 15 : 0,
                   z: isOpening ? -50 : 0,
@@ -123,14 +123,14 @@ export const LetterAnimation = ({
 
                 {/* Wax Seal */}
                 <motion.div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-full shadow-lg flex items-center justify-center"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-full shadow-lg flex items-center justify-center" //
                   animate={{
                     scale: isHovered ? 1.1 : 1,
                     rotate: isHovered ? 5 : 0,
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="text-white text-xl font-bold">💌</div>
+                  <div className="text-white text-lg font-bold">柱</div> //
                 </motion.div>
 
                 {/* Envelope Flap */}
@@ -152,37 +152,31 @@ export const LetterAnimation = ({
                 {isOpening && (
                   <motion.div
                     initial={{ y: 0, opacity: 0, scale: 0.8 }}
-                    animate={{ y: -40, opacity: 1, scale: 1 }}
+                    animate={{ y: -30, opacity: 1, scale: 1 }} //
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="absolute top-8 left-1/2 -translate-x-1/2 w-72 h-54 sm:w-80 sm:h-58 bg-gradient-to-br from-yellow-50 to-white rounded-lg shadow-xl border border-rose-200"
+                    className="absolute top-6 left-1/2 -translate-x-1/2 w-64 h-48 sm:w-72 sm:h-54 bg-gradient-to-br from-yellow-50 to-white rounded-lg shadow-xl border border-rose-200" //
                   >
-                    <div className="p-6 sm:p-8 h-full flex flex-col justify-center text-center">
-                      <div className="text-rose-500 text-2xl sm:text-3xl mb-4">
-                        💕
+                    <div className="p-4 sm:p-6 h-full flex flex-col justify-center text-center"> //
+                      <div className="text-rose-500 text-xl sm:text-3xl mb-3"> //
+                        瀦
                       </div>
                       {toName && (
-                        <p className="text-sm sm:text-base text-gray-600 mb-2">
+                        <p className="text-xs sm:text-base text-gray-600 mb-1"> //
                           {t('letter.to')}:{' '}
                           <span className="font-medium text-rose-600">
                             {toName}
                           </span>
                         </p>
                       )}
-                      <h3 className="text-lg sm:text-xl font-serif text-gray-800 mb-2">
+                      <h3 className="text-base sm:text-xl font-serif text-gray-800 mb-2"> //
                         {/* CURRENTLY PASSES: 'Mio & Fiqri' */}
-                        {/* Assuming the caller (HomeView) sends them in the desired new order, no change needed here.
-                        
-                        If you want to enforce the order here:
-                        const [groom, bride] = coupleName.split(' & ');
-                        {bride} & {groom} 
-                        
-                        BUT let's fix the call site, which is cleaner: */}
+                        {/* BUT let's fix the call site, which is cleaner: */}
                         {coupleName} 
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-600 mb-4">
+                      <p className="text-xs sm:text-base text-gray-600 mb-3"> //
                         {t('letter.invitation-title')}
                       </p>
-                      <div className="text-xs sm:text-sm text-gray-500 font-serif italic">
+                      <div className="text-[10px] sm:text-sm text-gray-500 font-serif italic"> //
                         &ldquo;{t('letter.invitation-quote')}&rdquo;
                       </div>
                     </div>
@@ -213,7 +207,7 @@ export const LetterAnimation = ({
                         }}
                         className="absolute top-1/2 left-1/2 text-yellow-400 text-sm pointer-events-none"
                       >
-                        ✨
+                        笨ｨ
                       </motion.div>
                     ))}
                   </>
@@ -227,7 +221,7 @@ export const LetterAnimation = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: isOpening ? 0 : 1 }}
             transition={{ duration: 0.5, delay: 2 }}
-            className="mt-8 sm:mt-12"
+            className="mt-6 sm:mt-10" //
           >
             <motion.p
               animate={{
@@ -239,13 +233,13 @@ export const LetterAnimation = ({
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="text-sm sm:text-base text-gray-600 font-medium"
+              className="text-xs sm:text-base text-gray-600 font-medium" //
             >
               {isHovered
                 ? t('letter.click-to-open-hover')
                 : t('letter.click-to-open')}
             </motion.p>
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-3"> //
               <motion.div
                 animate={{
                   scale: [1, 1.2, 1],
@@ -256,9 +250,9 @@ export const LetterAnimation = ({
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className="text-2xl"
+                className="text-xl" //
               >
-                👆
+                漕
               </motion.div>
             </div>
           </motion.div>
@@ -278,9 +272,9 @@ export const LetterAnimation = ({
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                className="w-12 h-12 border-4 border-rose-200 border-t-rose-500 rounded-full mx-auto mb-4"
+                className="w-10 h-10 border-4 border-rose-200 border-t-rose-500 rounded-full mx-auto mb-3" //
               />
-              <p className="text-gray-600 text-lg font-medium">
+              <p className="text-gray-600 text-base font-medium"> //
                 {t('letter.opening-the-invitation')}
               </p>
             </div>
