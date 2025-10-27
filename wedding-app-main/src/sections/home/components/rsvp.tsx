@@ -1,0 +1,236 @@
+'use client';
+
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
+import { useTranslation } from 'react-i18next';
+// Removed Resend and Toast dependencies entirely
+
+export const RSVP = () => {
+  const { t } = useTranslation('home');
+  
+  // State updated: Removed guests and dietaryRestrictions
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    attendance: '',
+    message: '',
+  });
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  
+  // Formspree Endpoint URL - Data will be sent here.
+  const FORM_ENDPOINT = "https://formspree.io/f/movpvobl"; 
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    // Only mapping _replyto is required now
+    if (name === '_replyto') {
+        name = 'email'; 
+    } 
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="py-20 px-4 bg-gradient-to-br from-rose-50 to-pink-100"
+    >
+      <div className="max-w-4xl mx-auto">
+        {/* Header (unchanged) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-800 mb-4">
+            {t('rsvp.title')}
+          </h2>
+          <div className="w-24 h-px bg-rose-400 mx-auto mb-6"></div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            {t('rsvp.subtitle')}
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* RSVP Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="bg-white rounded-3xl p-8 shadow-xl border border-rose-100">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-gray-800 mb-6 text-center">
+                {t('rsvp.confirm-attendance')}
+              </h3>
+
+              {/* FINAL SUBMISSION METHOD: Direct HTML form action to Formspree */}
+              <form 
+                action={FORM_ENDPOINT} 
+                method="POST" 
+                className="space-y-6"
+              >
+                {/* Hidden field for email subject */}
+                <input type="hidden" name="_subject" value="New Wedding RSVP Submission" />
+
+                {/* Name */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+                  >
+                    {t('rsvp.full-name')} *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all duration-300 text-gray-800"
+                    placeholder={t('rsvp.full-name')}
+                  />
+                </div>
+                {/* Email - MAPPED to _replyto in Formspree submit */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+                  >
+                    {t('rsvp.email-address')} *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="_replyto" // Formspree's special name
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all duration-300 text-gray-800"
+                    placeholder={t('rsvp.email-address')}
+                  />
+                </div>
+                {/* Attendance */}
+                <div>
+                  <label
+                    htmlFor="attendance"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+                  >
+                    {t('rsvp.will-attend')} *
+                  </label>
+                  <select
+                    id="attendance"
+                    name="attendance" // Now matches formData.attendance
+                    value={formData.attendance}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all duration-300 text-gray-800"
+                  >
+                    <option value="">{t('rsvp.please-select')}</option>
+                    <option value="yes">{t('rsvp.yes-there')}</option>
+                    <option value="no">{t('rsvp.no-cant')}</option>
+                  </select>
+                </div>
+                
+                {/* Removed: Number of Guests field block */}
+                
+                {/* Removed: Dietary Restrictions field block */}
+
+                {/* Message */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-2"
+                  >
+                    {t('rsvp.message-couple')}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message" // Now matches formData.message
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all duration-300 resize-none text-gray-800"
+                    placeholder={t('rsvp.message-placeholder')}
+                  />
+                </div>
+
+                {/* Submit Button - Simplified/Static */}
+                <button
+                  type="submit"
+                  className={`w-full py-4 px-6 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 bg-gradient-to-r from-rose-400 to-pink-500 text-white hover:from-rose-500 hover:to-pink-600`}
+                >
+                  {t('rsvp.send-rsvp')}
+                </button>
+              </form>
+            </div>
+          </motion.div>
+
+          {/* Info Side (unchanged) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-8"
+          >
+            {/* RSVP Deadline */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-rose-600 text-xl">⏰</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 text-sm sm:text-base">
+                    {t('rsvp.deadline')}
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm">
+                    {t('rsvp.deadline-date')}
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600 text-xs sm:text-sm">
+                {t('rsvp.deadline-help')}
+              </p>
+            </div>
+
+            {/* Contact Info */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-rose-100">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-blue-600 text-xl">📞</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 text-sm sm:text-base">
+                    {t('rsvp.questions')}
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm">
+                    {t('rsvp.questions-help')}
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-2 text-xs sm:text-sm text-gray-600">
+                <p>📧 husainghadiyali0219@gmail.com</p>
+                <p>📱 +91 99265 00186</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
