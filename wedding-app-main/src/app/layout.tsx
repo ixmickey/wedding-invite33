@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
-// REMOVED: import { LangProvider, LocalizationProvider } from '@/locales';
 import { Toaster } from 'sonner';
-import { Suspense } from 'react'; // ADDED: Import Suspense
+import { Suspense } from 'react';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -26,12 +25,13 @@ export default function RootLayout({
     // Hardcoding to English
     <html lang="en"> 
       <body className={`${poppins.variable} antialiased`}>
-        {/* FIXED: Wrap children in Suspense to resolve useSearchParams error */}
+        
         <Suspense fallback={<div>Loading app...</div>}> 
           {children}
         </Suspense>
+
         <Toaster />
       </body>
     </html>
   );
-}s
+}
