@@ -1,3 +1,5 @@
+// src/sections/home/components/hero-section.tsx
+
 'use client';
 
 import type { WeddingConfigType } from '@/types';
@@ -66,17 +68,17 @@ export const HeroSection = ({
                   className="text-center flex-shrink-0 justify-items-center -mb-4" 
                 >
                   <div 
-                    // Reduced Circle Size
-                    className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center 
-                               // Reduced Emoji Size
-                               text-xl sm:text-3xl md:text-5xl lg:text-6xl mb-1 sm:mb-4 shadow-lg"
+                    // Reduced Circle Size further for mobile (from w-14/h-14 to w-12/h-12)
+                    className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-full flex items-center justify-center 
+                               // Reduced Emoji Size further for mobile (from text-xl to text-lg)
+                               text-lg sm:text-2xl md:text-4xl lg:text-5xl mb-1 sm:mb-3 shadow-lg"
                   >
                     🤵🏻
                   </div>
-                  <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
+                  <div className="w-24 sm:w-28 md:w-36 lg:w-44 xl:w-52 mx-auto px-2">
                     <h3
-                      // Reduced Name Font Size
-                      className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
+                      // Reduced Name Font Size at larger breakpoints for proportion
+                      className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
                       title={couple.groom.fullName}
                     >
                       {couple.groom.name}
@@ -100,17 +102,17 @@ export const HeroSection = ({
                   className="text-center flex-shrink-0 justify-items-center -mt-4"
                 >
                   <div 
-                    // Reduced Circle Size
-                    className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center 
-                               // Reduced Emoji Size
-                               text-xl sm:text-3xl md:text-5xl lg:text-6xl mb-1 sm:mb-4 shadow-lg"
+                    // Reduced Circle Size further for mobile (from w-14/h-14 to w-12/h-12)
+                    className="w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-rose-200 to-pink-300 rounded-full flex items-center justify-center 
+                               // Reduced Emoji Size further for mobile (from text-xl to text-lg)
+                               text-lg sm:text-2xl md:text-4xl lg:text-5xl mb-1 sm:mb-3 shadow-lg"
                   >
                     👰🏻
                   </div>
-                  <div className="w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 mx-auto px-2">
+                  <div className="w-24 sm:w-28 md:w-36 lg:w-44 xl:w-52 mx-auto px-2">
                     <h3
-                      // Reduced Name Font Size
-                      className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
+                      // Reduced Name Font Size at larger breakpoints for proportion
+                      className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-serif text-gray-800 break-words hyphens-auto leading-tight overflow-wrap-anywhere"
                       title={couple.bride.fullName}
                     >
                       {couple.bride.name}
