@@ -33,7 +33,7 @@ export default function NavigationFAB({
       initial={{ opacity: 0, scale: 0, y: 100 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.8, type: 'spring', stiffness: 200 }}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-4 right-4 z-50" // Reduced bottom/right spacing
     >
       {/* Progress Ring */}
       <div className="relative">
@@ -133,9 +133,9 @@ export default function NavigationFAB({
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           whileHover={{ opacity: 1, x: 0 }}
-          className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-gray-800/90 text-white text-xs px-2 py-1 rounded-md shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none" //
+          className="absolute right-full top-1/2 -translate-y-1/2 mr-3 bg-gray-800/90 text-white text-xs px-2 py-1 rounded-md shadow-lg backdrop-blur-sm whitespace-nowrap pointer-events-none" // Compacted padding and reduced margin
         >
-          <div className="font-medium capitalize text-xs"> //
+          <div className="font-medium capitalize text-xs"> 
             {activeSection === 'hero' ? 'Home' : activeSection}
           </div>
           <div className="text-gray-300 text-xs">
