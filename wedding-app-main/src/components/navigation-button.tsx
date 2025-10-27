@@ -20,7 +20,7 @@ export function NavigationButton({
   const { t } = useTranslation('home');
 
   const baseClasses =
-    'relative flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 group overflow-hidden cursor-pointer'; //
+    'relative flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 group overflow-hidden cursor-pointer'; // Reduced base padding and gap
 
   const activeClasses = 'text-white shadow-lg';
 
