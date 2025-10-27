@@ -5,14 +5,8 @@
 import dayjs from 'dayjs';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import { useRouter } from 'next/navigation';
-
 import { allLangs } from './all-langs';
-import { changeLangMessages as messages } from './config-locales';
 import type resources from '@/types/resources';
-import { toast } from 'sonner';
-
 // ----------------------------------------------------------------------
 
 export function useTranslate(ns?: typeof resources) {
