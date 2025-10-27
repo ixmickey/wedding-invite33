@@ -1,3 +1,5 @@
+// src/sections/home/components/wedding-details-card.tsx
+
 'use client';
 
 import { motion } from 'motion/react';
@@ -74,7 +76,7 @@ export const WeddingDetailsCard = ({
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500/10 to-pink-500/10 backdrop-blur-sm rounded-full px-4 py-2 mb-4 border border-rose-200/50" //
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500/10 to-pink-500/10 backdrop-blur-sm rounded-full px-4 py-2 mb-4 border border-rose-200/50" // Reduced gap and padding
               >
                 <span className="text-xl">💕</span> //
                 <span className="text-xs sm:text-sm font-semibold text-rose-600 tracking-wide uppercase"> //
@@ -84,7 +86,7 @@ export const WeddingDetailsCard = ({
             </div>
 
             {/* Date Display */}
-            <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 sm:gap-6 md:gap-10 mb-6"> //
+            <div className="flex flex-col sm:flex-row items-stretch justify-center gap-3 sm:gap-4 md:gap-6 mb-6"> {/* Reduced gap */}
               {/* Day */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -93,12 +95,12 @@ export const WeddingDetailsCard = ({
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="text-center group-hover:scale-105 transition-transform duration-300 flex-1 sm:flex-none"
               >
-                <div className="bg-gradient-to-br from-rose-500 to-pink-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-20 sm:h-24 md:h-32 lg:h-36 flex flex-col items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[140px]"> //
-                  <div className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-none"> //
+                <div className="bg-gradient-to-br from-rose-500 to-pink-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-16 sm:h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center min-w-[70px] sm:min-w-[90px] md:min-w-[120px]"> {/* Reduced height and min-width */}
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none"> {/* Reduced largest font size */}
                     {date.getDate()}
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-2"> //
+                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-1"> {/* Reduced margin */}
                   {t('details.day')}
                 </p>
               </motion.div>
@@ -111,8 +113,8 @@ export const WeddingDetailsCard = ({
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="text-center group-hover:scale-105 transition-transform duration-300 flex-1 sm:flex-none"
               >
-                <div className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-20 sm:h-24 md:h-32 lg:h-36 flex flex-col items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[140px]"> //
-                  <div className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-none mb-1"> //
+                <div className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-16 sm:h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center min-w-[70px] sm:min-w-[90px] md:min-w-[120px]"> {/* Reduced height and min-width */}
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-none mb-1"> {/* Reduced largest font size */}
                     {/* Month abbreviation uses 'en-US' for DEC */}
                     {date
                       .toLocaleDateString(monthAbbrLocale, {
@@ -120,11 +122,11 @@ export const WeddingDetailsCard = ({
                       })
                       .toUpperCase()}
                   </div>
-                  <div className="text-xs sm:text-base md:text-lg font-medium opacity-90"> //
+                  <div className="text-xs sm:text-sm md:text-base font-medium opacity-90"> {/* Reduced font size */}
                     {date.getFullYear()}
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-2"> //
+                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-1"> {/* Reduced margin */}
                   {t('details.month')} & {t('details.year')}
                 </p>
               </motion.div>
@@ -137,13 +139,13 @@ export const WeddingDetailsCard = ({
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="text-center group-hover:scale-105 transition-transform duration-300 flex-1 sm:flex-none"
               >
-                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-20 sm:h-24 md:h-32 lg:h-36 flex flex-col items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[140px]"> //
+                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white rounded-xl p-3 sm:p-5 shadow-lg mb-2 h-16 sm:h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center min-w-[70px] sm:min-w-[90px] md:min-w-[120px]"> {/* Reduced height and min-width */}
                   <div className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold leading-none"> //
                     {/* Time uses the standard locale code (English) */}
                     {formatWeddingTime(date, currentLang.numberFormat.code)}
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-2"> //
+                <p className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider mt-1"> {/* Reduced margin */}
                   {t('details.time')}
                 </p>
               </motion.div>
@@ -157,23 +159,23 @@ export const WeddingDetailsCard = ({
               transition={{ duration: 0.5, delay: 0.7 }}
               className="text-center mb-6 px-0" //
             >
-              <div className="relative inline-block w-full max-w-xs sm:max-w-md md:max-w-lg bg-gradient-to-r from-white/90 via-rose-50/80 to-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 shadow-xl border border-rose-100/50 group/weekday hover:shadow-2xl transition-all duration-300"> //
+              <div className="relative inline-block w-full max-w-xs sm:max-w-md md:max-w-lg bg-gradient-to-r from-white/90 via-rose-50/80 to-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-3 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 shadow-xl border border-rose-100/50 group/weekday hover:shadow-2xl transition-all duration-300"> {/* Reduced padding and border-radius */}
                 {/* Decorative elements */}
                 <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-3 h-3 sm:w-5 sm:h-5 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full opacity-60 group-hover/weekday:scale-110 transition-transform duration-300"></div> //
                 <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full opacity-60 group-hover/weekday:scale-110 transition-transform duration-300"></div> //
 
                 <div className="relative z-10">
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2"> //
-                    <span className="text-lg sm:text-xl md:text-3xl">🗓️</span> //
-                    <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-gray-800 font-bold text-center leading-tight"> //
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2"> {/* Reduced gap */}
+                    <span className="text-base sm:text-lg md:text-2xl">🗓️</span> {/* Reduced emoji size */}
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-gray-800 font-bold text-center leading-tight"> {/* Reduced overall font size */}
                       {date.toLocaleDateString(dateDisplayLocale, {
                         weekday: 'long',
                       })}
                     </p>
-                    <span className="text-lg sm:text-xl md:text-3xl">🗓️</span> //
+                    <span className="text-base sm:text-lg md:text-2xl">🗓️</span> {/* Reduced emoji size */}
                   </div>
                   <div className="w-12 sm:w-16 md:w-20 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-2"></div> //
-                  <p className="text-xs sm:text-base md:text-lg lg:text-xl text-gray-600 font-medium"> //
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 font-medium"> {/* Reduced largest font size */}
                     {date.toLocaleDateString(dateDisplayLocale, {
                       month: 'long',
                       day: 'numeric',
@@ -201,14 +203,14 @@ export const WeddingDetailsCard = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 group/btn" //
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all duration-300 group/btn" // Reduced padding and font size
               >
                 <span className="text-lg group-hover/btn:scale-110 transition-transform duration-200"> //
                   📅
                 </span>
                 <span>{t('details.add-to-calendar')}</span>
                 <motion.span
-                  className="text-xs opacity-75" //
+                  className="text-[10px] opacity-75" // Reduced text size
                   animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
@@ -216,7 +218,7 @@ export const WeddingDetailsCard = ({
                 </motion.span>
               </motion.a>
 
-              <p className="text-xs sm:text-sm text-gray-500 mt-3 max-w-xs mx-auto"> //
+              <p className="text-[10px] sm:text-xs text-gray-500 mt-3 max-w-xs mx-auto"> {/* Reduced text size and margin */}
                 {t('details.message')}
               </p>
             </motion.div>
