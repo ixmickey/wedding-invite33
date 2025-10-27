@@ -50,5 +50,5 @@ const formatDateForGoogle = (date: Date): string => {
 };
 
 export const generateMapLink = (address: string): string => {
-  return `https://maps.google.com/maps?q=${encodeURIComponent(address)}`;
+  return `https://maps.app.goo.gl/1qykuegZRRgLMzWj6}`;
 };
