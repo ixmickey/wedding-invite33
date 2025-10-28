@@ -25,10 +25,9 @@ export const CoupleIntroduction = ({
     threshold: 0.2,
   });
 
-  return (
-    <div
-      ref={ref}
-      className="py-12 px-4 bg-gradient-to-b from-white to-rose-50/30" // Reduced vertical padding
+  return (<div // <-- The '<div' is now definitively on the same line as 'return ('
+    ref={ref}
+    className="py-12 px-4 bg-gradient-to-b from-white to-rose-50/30"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
