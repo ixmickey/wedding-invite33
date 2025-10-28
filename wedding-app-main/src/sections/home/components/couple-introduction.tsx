@@ -25,7 +25,7 @@ export const CoupleIntroduction = ({
     threshold: 0.2,
   });
 
-  return ( // <-- ADDED opening parenthesis here
+  return (
     <div
       ref={ref}
       className="py-12 px-4 bg-gradient-to-b from-white to-rose-50/30" // Reduced vertical padding
@@ -177,5 +177,5 @@ export const CoupleIntroduction = ({
         </motion.div>
       </div>
     </div>
-  ); // <-- ADDED closing parenthesis here
+  );
 };
