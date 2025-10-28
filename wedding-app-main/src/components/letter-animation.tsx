@@ -1,3 +1,5 @@
+// src/components/letter-animation.tsx
+
 'use client';
 
 import { useState } from 'react';
@@ -111,7 +113,7 @@ export const LetterAnimation = ({
             >
               {/* Envelope Back */}
               <motion.div
-                className="w-64 h-44 sm:w-80 sm:h-56 bg-gradient-to-br from-rose-200 to-pink-300 rounded-lg shadow-2xl relative mx-auto" // Reduced base size to w-64 h-44
+                className="w-64 h-44 sm:w-80 sm:h-56 bg-gradient-to-br from-rose-200 to-pink-300 rounded-lg shadow-2xl relative mx-auto" {/* Reduced base size to w-64 h-44 */}
                 animate={{
                   rotateY: isOpening ? 15 : 0,
                   z: isOpening ? -50 : 0,
@@ -123,14 +125,14 @@ export const LetterAnimation = ({
 
                 {/* Wax Seal */}
                 <motion.div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-full shadow-lg flex items-center justify-center" // Reduced base size
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-full shadow-lg flex items-center justify-center" {/* Reduced base size */}
                   animate={{
                     scale: isHovered ? 1.1 : 1,
                     rotate: isHovered ? 5 : 0,
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="text-white text-base font-bold">柱</div> // Reduced font size
+                  <div className="text-white text-base font-bold">柱</div> {/* Reduced font size */}
                 </motion.div>
 
                 {/* Envelope Flap */}
@@ -152,12 +154,12 @@ export const LetterAnimation = ({
                 {isOpening && (
                   <motion.div
                     initial={{ y: 0, opacity: 0, scale: 0.8 }}
-                    animate={{ y: -24, opacity: 1, scale: 1 }} // Adjusted vertical offset
+                    animate={{ y: -24, opacity: 1, scale: 1 }} {/* Adjusted vertical offset */}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="absolute top-4 left-1/2 -translate-x-1/2 w-56 h-40 sm:w-72 sm:h-54 bg-gradient-to-br from-yellow-50 to-white rounded-lg shadow-xl border border-rose-200" // Reduced base size and top offset
+                    className="absolute top-4 left-1/2 -translate-x-1/2 w-56 h-40 sm:w-72 sm:h-54 bg-gradient-to-br from-yellow-50 to-white rounded-lg shadow-xl border border-rose-200" {/* Reduced base size and top offset */}
                   >
-                    <div className="p-4 h-full flex flex-col justify-center text-center"> // Reduced padding
-                      <div className="text-lg sm:text-2xl mb-2"> // Reduced font size
+                    <div className="p-4 h-full flex flex-col justify-center text-center"> {/* Reduced padding */}
+                      <div className="text-lg sm:text-2xl mb-2"> {/* Reduced font size */}
                         瀦
                       </div>
                       {toName && (
@@ -168,12 +170,12 @@ export const LetterAnimation = ({
                           </span>
                         </p>
                       )}
-                      <h3 className="text-base sm:text-xl font-serif text-gray-800 mb-1"> // Reduced font size
+                      <h3 className="text-base sm:text-xl font-serif text-gray-800 mb-1"> {/* Reduced font size */}
                         {/* CURRENTLY PASSES: 'Mio & Fiqri' */}
                         {/* BUT let's fix the call site, which is cleaner: */}
                         {coupleName} 
                       </h3>
-                      <p className="text-xs sm:text-base text-gray-600 mb-2"> // Reduced font size
+                      <p className="text-xs sm:text-base text-gray-600 mb-2"> {/* Reduced font size */}
                         {t('letter.invitation-title')}
                       </p>
                       <div className="text-[10px] sm:text-sm text-gray-500 font-serif italic"> 
@@ -250,7 +252,7 @@ export const LetterAnimation = ({
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className="text-lg" // Reduced font size
+                className="text-lg" {/* Reduced font size */}
               >
                 漕
               </motion.div>
@@ -272,9 +274,9 @@ export const LetterAnimation = ({
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                className="w-8 h-8 border-3 border-rose-200 border-t-rose-500 rounded-full mx-auto mb-2" // Reduced size and border
+                className="w-8 h-8 border-3 border-rose-200 border-t-rose-500 rounded-full mx-auto mb-2" {/* Reduced size and border */}
               />
-              <p className="text-gray-600 text-sm font-medium"> // Reduced font size
+              <p className="text-gray-600 text-sm font-medium"> {/* Reduced font size */}
                 {t('letter.opening-the-invitation')}
               </p>
             </div>
