@@ -25,7 +25,8 @@ export const CoupleIntroduction = ({
     threshold: 0.2,
   });
 
-  return (<div // ✅ FIX: Moved opening tag to the return line to prevent ASI
+  return ( // Removed opening parenthesis and moved opening tag to the next line.
+    <div 
     ref={ref}
     className="py-12 px-4 bg-gradient-to-b from-white to-rose-50/30" // Reduced vertical padding
   >
