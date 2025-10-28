@@ -26,7 +26,7 @@ export const CoupleIntroduction = ({
   });
 
   return (
-    <div
+    <div // <-- FIXED: Moved <div to the same line as return (
       ref={ref}
       className="py-12 px-4 bg-gradient-to-b from-white to-rose-50/30" // Reduced vertical padding
     >
